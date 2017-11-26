@@ -1,3 +1,4 @@
 # bingo-game
-simple multiplayer game
-make this multiplayer online game 
+simple multiplayer game.
+
+Make this multiplayer online game 
