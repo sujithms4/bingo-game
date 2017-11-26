@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+	font-size:18px;
+	font-style:normal;
+	padding:20px;
+}
+span{
+	font-weight: normal;
+}
+
+td, th {
+    border: 2px solid #F0F0F0;
+    text-align:center;
+	padding:0;
+	margin:0;
+}
+.button{
+	background-color:#F0F0F0;
+	font-size:16px;
+	width:50px;
+	height:50px;
+	border:none;
+	text-align:center;
+}
+span.spbt{
+}
+#b, #i, #n, #g, #o{
+	font-weight:700;
+}
+</style>
+<script>
+
+var i=0,x=23,m,j,n,p,b;
+var q=0;
+var t=1;
+var arr=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+var ones=[];
+var bin=0;
+var r1=0;
+var r2=0;
+var r3=0;
+var r4=0;
+var r5=0;
+var c2=0;
+var c3=0;
+var c4=0;
+var c5=0;
+var c1=0;
+var d1=0;
+var d2=0;
+var d,f=0,g;
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+arr = shuffle(arr);
+function myFunction() {
+}
+function ones(){
+}
+function randomclick(){
+	arr = shuffle(arr);
+	i=0;
+	for (b=0; b<arr.length; b++){
+		randomclicked(arr[b]);
+	}
+}
+function randomclicked(j){
+	if(i<25){
+		++i;
+		document.getElementById(i).innerHTML= j;
+		for(g=1;g<26;g++){
+			document.getElementById(g).disabled = false;
+		}
+	}
+	else {
+		document.getElementById("bing").innerHTML="Shit!";
+	}
+}
+function clickd(m){
+	document.getElementById(m).style.backgroundColor = "#ff3000";
+	rannum(m);
+	document.getElementById(m).disabled = true;
+	if(i==25){
+		for(g=1;g<26;g++){
+			document.getElementById(g).disabled = false;
+			document.getElementById(m).color = "#ff2800"
+		}
+	}
+}
+function rannum(j) {
+	
+	if(n==j){
+		return;
+	}
+		
+	
+	if(i<25){
+		++i;
+		document.getElementById(j).innerHTML= i;
+	}
+	else if(i==25){
+		
+		document.getElementById("btn1").disabled = true;
+		ones[j]=1;
+		document.getElementById("colord").innerHTML=j;
+		localStorage.setItem("red1", ones[j]);
+		bingo();
+		if(q==3){
+			q=0;
+		}
+		if(q==0){
+			document.getElementById(j).style.backgroundColor="#ff2800";
+			
+		}
+		else if(q==1){
+			document.getElementById(j).style.backgroundColor="#0000FF";
+			
+		}
+		else if(q==2){
+			document.getElementById(j).style.backgroundColor="#F000F0";
+		}
+		n=j;
+	}
+}
+function bingo(){
+	
+	if(r1==0){
+		if((ones[1]&&ones[2]&&ones[3]&&ones[4]&&ones[5])==1){
+			++bin;
+			r1=1;
+			bingocolor(bin);
+		}
+	}
+	if(r2==0){
+		if((ones[6]&&ones[7]&&ones[8]&&ones[9]&&ones[10])==1){
+			++bin;
+			r2=1;
+			bingocolor(bin);
+		}
+	}
+	if(r3==0){
+		if((ones[11]&&ones[12]&&ones[13]&&ones[14]&&ones[15])==1){
+			++bin;
+			r3=1;
+			bingocolor(bin);
+		}
+	}	
+	if(r4==0){
+		if((ones[16]&&ones[17]&&ones[18]&&ones[19]&&ones[20])==1){
+			++bin;
+			r4=1;
+			bingocolor(bin);
+		}
+	}
+	if(r5==0){
+		if((ones[21]&&ones[22]&&ones[23]&&ones[24]&&ones[25])==1){
+			++bin;
+			r5=1;
+			bingocolor(bin);
+		}
+	}
+	if(c1==0){
+		if((ones[1]&&ones[6]&&ones[11]&&ones[16]&&ones[21])==1){
+			++bin;
+			c1=1;
+			bingocolor(bin);
+		}
+	}
+	if(c2==0){
+		if((ones[2]&&ones[7]&&ones[13]&&ones[18]&&ones[22])==1){
+			++bin;
+			c2=1;
+			bingocolor(bin);
+		}
+	}
+	if(c3==0){
+		if((ones[3]&&ones[8]&&ones[13]&&ones[18]&&ones[23])==1){
+			++bin;
+			c3=1;
+			bingocolor(bin);
+		}
+	}
+	if(c4==0){
+		if((ones[4]&&ones[9]&&ones[14]&&ones[19]&&ones[24])==1){
+			++bin;
+			c4=1;
+			bingocolor(bin);
+		}
+	}
+	if(c5==0){
+		if((ones[5]&&ones[10]&&ones[15]&&ones[20]&&ones[25])==1){
+			++bin;
+			c5=1;
+			bingocolor(bin);
+		}
+	}
+	if(d1==0){
+		if((ones[1]&&ones[7]&&ones[13]&&ones[19]&&ones[25])==1){
+			++bin;
+			d1=1;
+			bingocolor(bin);
+		}
+	}
+	if(d2==0){
+		if((ones[5]&&ones[9]&&ones[13]&&ones[17]&&ones[21])==1){
+			++bin;
+			d2=1;
+			bingocolor(bin);
+		}
+	}
+	return;
+}
+function bingocolor(p){
+	if(p==1){
+		document.getElementById("b").style.color="#00fc00";
+		return;
+	}
+	else if(p==2){
+		document.getElementById("i").style.color="#00fc00";
+		return;
+	}
+	else if(p==3){
+		document.getElementById("n").style.color="#00fc00";
+		return;
+	}
+	else if(p==4){
+		document.getElementById("g").style.color="#00fc00";
+		return;
+	}
+	else if(p==5){
+		document.getElementById("o").style.color="#00fc00";
+		shout();
+		return;
+	}
+	return;
+}
+function shout(){
+	document.getElementById("result").innerHTML="Shout BINGO!";
+	disablebut();
+	for(n=0;n<26;n++){
+		localStorage.removeItem("red1");
+	}
+	
+	return;
+}
+function disablebut(){
+	for(g=1;g<26;g++){
+			document.getElementById("1").disabled = true;
+		}
+	return;
+}
+function storageEvent(event) {
+  event = event || window.event; // give IE8 some love
+  alert('Yo people! Something just got stored!');
+}
+// Check browser support
+
+</script>
+<script>
+function savebut(){
+	if (typeof(Storage) !== "undefined") {
+		
+		document.getElementById("result").innerHTML = localStorage.getItem("red1");
+		}
+		else {
+			document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+			}
+}
+</script>
+<script>
+function onpageload(){
+	document.getElementById("tables").hidden = true;
+	document.getElementById("btn1").hidden = true;
+	document.getElementById("saved").hidden = true;
+	q = localStorage.getItem("q");
+}
+function createbingo(){
+	document.getElementById("tables").hidden = false;
+	document.getElementById("btn1").hidden = false;
+	document.getElementById("saved").hidden = false;
+	document.getElementById("newbut").hidden = true;
+	document.getElementById("newtext").hidden = true;
+	localStorage.setItem("q", q);
+	
+}
+</script>
+<script>
+
+</script>
+</head>
+<body onLoad="onpageload()">
+<input type="text" placeholder="Type your name" id="newtext"/>
+<input type="button" onClick="createbingo()" value="Create" id="newbut"/>
+
+<h1><span id="b">B</span><span id="i">I</span><span id="n">N</span><span id="g">G</span><span id="o">O</span></h1>
+<table id="tables" onLoad="onloadpage()">
+  <tr>
+    <td><button id="1" onClick="clickd(1)" class="button"></button></td>
+    <td><button id="2" onClick="clickd(2)" class="button"></button></td>
+    <td ><button id="3" onClick="clickd(3)" class="button"></button></td>
+    <td ><button id="4" onClick="clickd(4)" class="button"></button></td>
+    <td ><button id="5" onClick="clickd(5)" class="button"></button></td>
+  </tr>
+
+  <tr>
+    <td><button id="6" onClick="clickd(6)" class="button"></button></td>
+    <td><button id="7" onClick="clickd(7)" class="button"></button></td>
+    <td><button id="8" onClick="clickd(8)" class="button"></button></td>
+    <td><button id="9" onClick="clickd(9)" class="button"></button></td>
+    <td><button id="10" onClick="clickd(10)" class="button"></button></td>
+  </tr>
+  <tr>
+    <td><button id="11" onClick="clickd(11)" class="button"></button></td>
+    <td><button id="12" onClick="clickd(12)" class="button"></button></td>
+    <td><button id="13" onClick="clickd(13)" class="button"></button></td>
+    <td><button id="14" onClick="clickd(14)" class="button"></button></td>
+    <td><button id="15" onClick="clickd(15)" class="button"></button></td>
+  </tr>
+  <tr>
+    <td><button id="16" onClick="clickd(16)" class="button"></button></td>
+    <td><button id="17" onClick="clickd(17)" class="button"></button></td>
+    <td><button id="18" onClick="clickd(18)" class="button"></button></td>
+    <td><button id="19" onClick="clickd(19)" class="button"></button></td>
+    <td><button id="20" onClick="clickd(20)" class="button"></button></td>
+  </tr>
+  <tr>
+    <td><button id="21" onClick="clickd(21)" class="button"></button></td>
+    <td><button id="22" onClick="clickd(22)" class="button"></button></td>
+    <td><button id="23" onClick="clickd(23)" class="button"></button></td>
+    <td><button id="24" onClick="clickd(24)" class="button"></button></td>
+    <td><button id="25" onClick="clickd(25)" class="button"></button></td>
+  </tr>
+</table>
+
+<p id="demo"></p>
+<p id="colord"></p>
+<p id="result"></p>
+<p id="bing"></p>
+<button type="button" id="btn1" onclick="randomclick()">Random</button>
+<button type="button" id="saved" onclick="savebut()" >save</button>
+
+
+</body>
+</html>
